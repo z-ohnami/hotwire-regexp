@@ -1,0 +1,7 @@
+ja:
+  activemodel:
+    attributes:
+      regular_expression:
+        expression: 正規表現
+        test_string: テスト文字列
+

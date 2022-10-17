@@ -1,0 +1,29 @@
+// Entry point for your Sass build
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+.field {
+  margin-top: 20px;
+}
+
+.result_message {
+  margin-top: 20px;
+  &__success {
+    font-weight: 700;
+    color: green;
+  }
+  &__fail {
+    font-weight: 700;
+    color: red;
+  }
+}
