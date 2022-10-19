@@ -12,6 +12,11 @@ label {
   display: block;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .field {
   margin-top: 20px;
 }

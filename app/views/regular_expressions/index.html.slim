@@ -1,7 +1,10 @@
 .container
   h1 正規表現チェッカー
 
-  = form_for(@regular_expression, url: regular_expressions_path, html: { data: { turbo_frame: 'regexp', controller: 'regexp', action: 'input->regexp#submit' } }) do |f|
+  = form_for @regular_expression,
+      url: regular_expressions_path,
+      html: { data: { turbo_frame: 'regexp', controller: 'regexp', action: 'input->regexp#submit' } } do |f|
+
     .field
       = f.label :expression
       = f.text_field :expression, size: 80, placeholder: ''
@@ -9,14 +12,12 @@
       = f.label :test_string
       = f.text_area :test_string, size: '60x6', placeholder: '', class: ''
 
-  .result_message
+  ul.result_message
     = turbo_frame_tag 'regexp' do
       - if @regular_expression.unready?
-        | 結果はここに出力されます。
+        li 結果はここに出力されます。
       - elsif @regular_expression.valid?
-        span.result_message__success マッチしました！！
+        li.result_message__success マッチしました！！
       - else
-        span.result_message__fail
-          - @regular_expression.errors.full_messages.each do |message|
-            = message
-            br
+        - @regular_expression.errors.full_messages.each do |message|
+          li.result_message__fail = message
