@@ -1,7 +1,10 @@
 class RegularExpression
   include ActiveModel::Model
 
+  # 正規表現のパターン文字列
   attr_reader :expression
+
+  # 正規表現をかける対象となる文字列
   attr_reader :test_string
 
   validate :check_expression
@@ -11,6 +14,7 @@ class RegularExpression
     @test_string = test_string
   end
 
+  # 画面が初期表示、未入力の状態であるかを判定するのに使用。
   def unready?
     @expression.blank? || @test_string.blank?
   end
@@ -21,6 +25,7 @@ class RegularExpression
     @regexp ||= Regexp.new(expression)
   end
 
+  # この結果を正規表現の判定結果として表示している
   def check_expression
     return if regexp.match?(test_string)
 

@@ -5,7 +5,6 @@ class RegularExpressionsController < ApplicationController
 
   def create
     @regular_expression = RegularExpression.new(expression: regexp_params[:expression], test_string: regexp_params[:test_string])
-    @regular_expression.valid?
 
     render :index
   end

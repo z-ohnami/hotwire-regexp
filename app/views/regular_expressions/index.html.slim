@@ -12,6 +12,10 @@
       = f.label :test_string
       = f.text_area :test_string, size: '60x6', placeholder: '', class: ''
 
+  / [ポイント]
+  / 動的かつ部分的に変わる部分をturbo_frame_tagで囲む。
+  / Turbo Frameは1ヶ所しか指定できない。
+  / 複数箇所を同時に差し替えたいときはTurbo Streamを使う
   ul.result_message
     = turbo_frame_tag 'regexp' do
       - if @regular_expression.unready?
